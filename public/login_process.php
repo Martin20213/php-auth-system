@@ -14,7 +14,7 @@ $authController = new AuthController($db);
 
 try {
     $authController->login($email, $password);
-    $_SESSION['flash'] = 'Login successful.';
+    $_SESSION['flash'] = 'Bejelentkezés sikeres.';
     header('Location: dashboard.php');
     exit();
 } catch (AuthenticationException $ex) {

@@ -12,5 +12,11 @@
     <main class="container">
         <?php include $view; ?>
     </main>
+
+    <footer style="text-align: center; padding-bottom: 2rem;">
+        <p class="footer-text">
+            &copy; <?php echo date('Y'); ?> PHP Auth System.
+        </p>
+    </footer>
 </body>
 </html>

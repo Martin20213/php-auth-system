@@ -6,6 +6,9 @@ Tech Stack: PHP, MySQL, HTML, CSS, XAMPP
 
 📸Screenshots
 
+<img width="1087" height="601" alt="image" src="https://github.com/user-attachments/assets/9b24187b-0661-47c8-9426-57353db3c29b" />
+
+<img width="947" height="698" alt="image" src="https://github.com/user-attachments/assets/f67fa6c9-2400-465f-827b-e15dd78a5034" />
 
 
 ⚙️ Installation & Setup

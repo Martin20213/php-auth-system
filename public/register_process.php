@@ -14,10 +14,10 @@ $password = trim($_POST['password'] ?? '');
 $authController = new AuthController($db);
 $message = $authController->register($name, $email, $password);
 
-if ($message === 'User registered successfully.') {
+if ($message === 'Regisztráció sikeres.' || $message === 'Felhasználó regisztrálva.') {
     // Automatically log in the user after successful registration.
     $authController->login($email, $password);
-    $_SESSION['flash'] = 'Registration successful. You are now logged in.';
+    $_SESSION['flash'] = 'Regisztráció sikeres. Most már be vagy jelentkezve.';
     header('Location: dashboard.php');
     exit();
 }

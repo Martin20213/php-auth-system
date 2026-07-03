@@ -4,10 +4,10 @@ if (!empty($_SESSION['flash'])) {
     unset($_SESSION['flash']);
 }
 ?>
-<h1>Welcome</h1>
-<p>Use the buttons below to sign in or register a new account.</p>
+<h1>Üdvözöljük!</h1>
+<p>Használja az alábbi gombokat a bejelentkezéshez vagy új fiók regisztrálásához.</p>
 <nav>
-    <a class="button-link" href="login.php">Login</a>
-    <a class="button-link" href="register.php">Register</a>
+    <a class="button-link" href="login.php">Bejelentkezés</a>
+    <a class="button-link" href="register.php">Regisztráció</a>
 </nav>
-<p class="footer-text">Simple PHP auth system with jQuery, HTML5, and CSS.</p>
+<p class="footer-text">Egyszerű PHP authentikációs rendszer jQuery, HTML5 és CSS használatával.</p>

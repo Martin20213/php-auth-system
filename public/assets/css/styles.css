@@ -74,6 +74,10 @@ button[type='submit'],
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
+.button-link + .button-link {
+    margin-top: 0.85rem;
+}
+
 .text-link {
     color: #cccccc; 
     text-decoration: underline; 
@@ -96,7 +100,8 @@ button[type='submit']:hover,
 .button-link:hover {
     transform: translateY(-1px);
     box-shadow: 0 10px 20px rgba(229, 57, 53, 0.3);
-    filter: brightness(1.1); 
+    filter: brightness(1.1);
+    color: #ffffff;
 }
 
 .flash {

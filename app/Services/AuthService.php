@@ -25,11 +25,11 @@ class AuthService
         $user = $this->userModel->findByEmail($email);
 
         if (!$user) {
-            throw new UserNotFoundException('User does not exist.');
+            throw new UserNotFoundException('Felhasználó nem létezik.');
         }
 
         if (!password_verify($password, $user['password'])) {
-            throw new AuthenticationException('Invalid credentials.');
+            throw new AuthenticationException('Érvénytelen hitelesítő adatok.');
         }
 
         $_SESSION['user_id'] = $user['id'];

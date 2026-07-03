@@ -6,6 +6,7 @@ if (!empty($_SESSION['flash'])) {
 ?>
 <h1>Bejelentkezés</h1>
 <form method="post" action="login_process.php">
+    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(csrf_token()); ?>">
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>

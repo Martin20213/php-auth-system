@@ -6,6 +6,7 @@ if (!empty($_SESSION['flash'])) {
 ?>
 <h1>Regisztráció</h1>
 <form method="post" action="register_process.php">
+    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(csrf_token()); ?>">
     <div class="form-group">
         <label for="name">Név</label>
         <input type="text" id="name" name="name" required>

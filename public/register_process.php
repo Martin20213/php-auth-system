@@ -7,6 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
+$csrfToken = $_POST['csrf_token'] ?? '';
+if (!verify_csrf_token($csrfToken)) {
+    $_SESSION['flash'] = 'Érvénytelen űrlap beküldés.';
+    header('Location: register.php');
+    exit();
+}
+
 $name = trim($_POST['name'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $password = trim($_POST['password'] ?? '');

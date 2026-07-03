@@ -1,6 +1,6 @@
 📌 Project Description
 
-A vanilla PHP + MySQL authentication system implementing user registration, login, email verification, password reset, and session-based authentication.
+A vanilla PHP + MySQL authentication system.
 
 Tech Stack: PHP, MySQL, HTML, CSS, XAMPP
 

@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS auth_db;
+USE auth_db;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO users (name, email, password)
+VALUES (
+    'Admin',
+    'admin@admin.com',
+    '$2y$10$gXNRmCXqEsPruGpSSUTFZu55Cv3e73/VaTsK4BRFT8PEKkh.6nGdS'
+);

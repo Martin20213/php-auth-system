@@ -12,28 +12,28 @@ class AuthController
     public function register($name, $email, $password)
     {
         if ($this->authService->register($name, $email, $password)) {
-            return "User registered successfully.";
+            return "Regisztráció sikeres.";
         }
-        return "User already exists.";
+        return "Felhasználó már létezik.";
     }
 
     public function login($email, $password)
     {
         $this->authService->login($email, $password);
-        return "Login successful.";
+        return "Bejelentkezés sikeres.";
     }
 
     public function changePassword($id, $newPassword)
     {
         if ($this->authService->changePassword($id, $newPassword)) {
-            return "Password changed successfully.";
+            return "Jelszó módosítása sikeres.";
         }
-        return "Failed to change password.";
+        return "Nem sikerült módosítani a jelszót.";
     }
 
     public function logout()
     {
         $this->authService->logout();
-        return "Logged out successfully.";
+        return "Kijelentkezés sikeres.";
     }
 }

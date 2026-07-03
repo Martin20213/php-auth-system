@@ -4,8 +4,8 @@ if (!empty($_SESSION['flash'])) {
     unset($_SESSION['flash']);
 }
 ?>
-<h1>Signed out</h1>
-<p>Your session has ended successfully.</p>
+<h1>Kijelentkezés</h1>
+<p>A munkamenet sikeresen befejeződött.</p>
 <nav>
-    <a class="button-link" href="login.php">Login again</a>
+    <a class="button-link" href="login.php">Bejelentkezés</a>
 </nav>

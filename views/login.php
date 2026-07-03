@@ -4,18 +4,20 @@ if (!empty($_SESSION['flash'])) {
     unset($_SESSION['flash']);
 }
 ?>
-<h1>Login</h1>
+<h1>Bejelentkezés</h1>
 <form method="post" action="login_process.php">
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Jelszó</label>
         <input type="password" id="password" name="password" required>
     </div>
-    <button type="submit">Login</button>
+    <button type="submit">Bejelentkezés</button>
 </form>
 <nav>
-    <a class="button-link" href="register.php">Register instead</a>
+    <div class="auth-footer">
+    <p>Nincs még fiókod? <a href="register.php" class="text-link">Regisztrálj itt</a></p>
+</div>
 </nav>

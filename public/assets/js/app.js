@@ -6,8 +6,8 @@ $(function () {
         }, 5000);
     }
 
-    $('form').on('submit', function () {
+    $('form').not('.ajax-form').on('submit', function () {
         var button = $(this).find('button[type="submit"]');
-        button.prop('disabled', true).text('Processing...');
+        button.prop('disabled', true).text('Betöltés...');
     });
 });

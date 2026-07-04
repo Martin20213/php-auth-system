@@ -2,15 +2,18 @@
 
 require_once __DIR__ . '/bootstrap.php';
 
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: login.php');
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Érvénytelen kérés.']);
     exit();
 }
 
 $csrfToken = $_POST['csrf_token'] ?? '';
 if (!verify_csrf_token($csrfToken)) {
-    $_SESSION['flash'] = 'Érvénytelen űrlap beküldés.';
-    header('Location: login.php');
+    http_response_code(419);
+    echo json_encode(['success' => false, 'message' => 'Érvénytelen űrlap beküldés.']);
     exit();
 }
 
@@ -21,11 +24,17 @@ $authController = new AuthController($db);
 
 try {
     $authController->login($email, $password);
-    $_SESSION['flash'] = 'Bejelentkezés sikeres.';
-    header('Location: dashboard.php');
+    echo json_encode([
+        'success'  => true,
+        'message'  => 'Bejelentkezés sikeres.',
+        'redirect' => 'dashboard.php',
+    ]);
     exit();
 } catch (AuthenticationException $ex) {
-    $_SESSION['flash'] = $ex->getMessage();
-    header('Location: login.php');
+    http_response_code(401);
+    echo json_encode([
+        'success' => false,
+        'message' => $ex->getMessage(),
+    ]);
     exit();
 }

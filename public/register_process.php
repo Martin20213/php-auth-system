@@ -2,15 +2,18 @@
 
 require_once __DIR__ . '/bootstrap.php';
 
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: register.php');
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Érvénytelen kérés.']);
     exit();
 }
 
 $csrfToken = $_POST['csrf_token'] ?? '';
 if (!verify_csrf_token($csrfToken)) {
-    $_SESSION['flash'] = 'Érvénytelen űrlap beküldés.';
-    header('Location: register.php');
+    http_response_code(419);
+    echo json_encode(['success' => false, 'message' => 'Érvénytelen űrlap beküldés.']);
     exit();
 }
 
@@ -22,13 +25,18 @@ $authController = new AuthController($db);
 $message = $authController->register($name, $email, $password);
 
 if ($message === 'Regisztráció sikeres.' || $message === 'Felhasználó regisztrálva.') {
-    // Automatically log in the user after successful registration.
     $authController->login($email, $password);
-    $_SESSION['flash'] = 'Regisztráció sikeres. Most már be vagy jelentkezve.';
-    header('Location: dashboard.php');
+    echo json_encode([
+        'success'  => true,
+        'message'  => 'Regisztráció sikeres. Most már be vagy jelentkezve.',
+        'redirect' => 'dashboard.php',
+    ]);
     exit();
 }
 
-$_SESSION['flash'] = $message;
-header('Location: register.php');
+http_response_code(422);
+echo json_encode([
+    'success' => false,
+    'message' => $message,
+]);
 exit();
